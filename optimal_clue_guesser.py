@@ -7,6 +7,21 @@ The optimal clue guessing system iterates through all possible hands from
 a given set of constraints and counts the number of possible hands from each
 set of cards in the envelope. It will then guess the cards that are most
 likely to be in the envelope (have the most possible hands from that state).
+
+Copyright (C) 2018 Dominic Antonacci
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import copy
 import itertools
