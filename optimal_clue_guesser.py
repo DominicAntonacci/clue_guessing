@@ -653,30 +653,3 @@ def countPlayerPossibilities(player_to_count, other_players):
             num_possibilities[hand] += _game_state_counter.countPossibleStates(new_hands)
 
     return num_possibilities
-
-
-def countEnvelopePossibilities(envelope_info, player_hands):
-    """
-    Returns the number of possible hands for each set of cards that could be
-    in the envelope.
-    """
-    num_possibilities = {}
-    all_constraints = satisfyAllConstraints(player_hands)
-    for hand in envelope_info.getPossibleHands():
-        for constraint in all_constraints:
-            # Ensure the envelope hand doesn't conflict with the constraint
-            if len(hand.cards.intersection(constraint)) > 0:
-                continue
-
-            # Construct the new hands, satisfying the constraints.
-            new_player_hands = []
-            for (hand_info, new_cards) in zip(player_hands, constraint):
-                new_hand = copy.deepcopy(hand_info)
-                for card in constraint:
-                    new_hand.addKnownCard(card)
-                new_player_hands.append(new_hand)
-
-            # Count the possible hands.
-            num_possibilities[hand] = _game_state_counter.countPossibleStates(new_player_hands)
-
-    return num_possibilities
